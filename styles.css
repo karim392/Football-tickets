@@ -1,0 +1,332 @@
+/* -------------------------------------- */
+/* ⚽ Global Variables (for maintainability) */
+/* -------------------------------------- */
+:root {
+  /* Colors - Football & Dark Theme */
+  --color-primary: #ffcc00; /* Gold/Yellow - Accent color */
+  --color-secondary: #1a73e8; /* Blue - Secondary action/link color */
+  --color-dark: #111; /* Dark Grey/Black - Backgrounds, text */
+  --color-light: #fff;
+  --color-text-main: #333;
+  --color-bg-main: #f5f5f5;
+  --color-border: #ddd;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 15px;
+  --spacing-lg: 30px;
+  --spacing-xl: 50px;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 25px;
+}
+
+/* -------------------------------------- */
+/* ⚙️ Reset and Base Styles */
+/* -------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif; /* Adding a more modern font option */
+  line-height: 1.6;
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+  min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Sections */
+section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px; /* Max width for content alignment */
+  margin: 0 auto;
+}
+
+/* -------------------------------------- */
+/* 🔝 Header and Navigation */
+/* -------------------------------------- */
+header {
+  background: var(--color-dark);
+  color: var(--color-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; /* Sticky header for better navigation */
+  top: 0;
+  z-index: 100; /* Ensure header is above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+  font-size: 1.8em; /* Slightly larger logo */
+  font-weight: 900;
+  color: var(--color-primary); /* Highlight logo */
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+header nav a {
+  color: var(--color-light);
+  font-weight: 500;
+}
+
+header nav a:hover {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary); /* Subtle hover effect */
+}
+
+/* -------------------------------------- */
+/* 🌟 Hero Section */
+/* -------------------------------------- */
+.hero {
+  /* Using a local variable for a cleaner background declaration */
+  background: url('https://images.unsplash.com/photo-1607968565043-34e88e7e7e2a') center/cover no-repeat;
+  color: var(--color-light);
+  text-align: center;
+  padding: 120px var(--spacing-md); /* More vertical padding */
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3em; /* Larger, more impactful heading */
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-light);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for contrast */
+}
+
+.hero p {
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+/* -------------------------------------- */
+/* 🔘 Button Styles */
+/* -------------------------------------- */
+.btn {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  padding: 12px 25px; /* Slightly more padding */
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  border: none; /* Useful if used on a button element */
+  cursor: pointer;
+  display: inline-block; /* Essential for padding on <a> tags */
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn:hover {
+  background: #e6b800; /* Darker primary color on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary button for other actions */
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-light);
+}
+
+.btn-secondary:hover {
+  background: #145cb8;
+}
+
+/* -------------------------------------- */
+/* 🏟️ Matches Section */
+/* -------------------------------------- */
+.matches h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  font-size: 2em;
+}
+
+.match-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg); /* Increased gap for better separation */
+  flex-wrap: wrap;
+}
+
+.match-card {
+  background: var(--color-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 280px; /* Slightly wider card for more content */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  text-align: left; /* Align card content left */
+  border-top: 5px solid var(--color-primary); /* Accent border */
+  transition: transform var(--transition-speed);
+}
+
+.match-card:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.match-card h3 {
+  font-size: 1.4em;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-dark);
+}
+
+.match-card p {
+  margin-bottom: var(--spacing-md);
+  color: #555;
+  font-size: 0.95em;
+}
+
+.match-card .btn {
+  margin-top: var(--spacing-sm);
+  width: 100%; /* Make button full width in card */
+  text-align: center;
+}
+
+/* -------------------------------------- */
+/* 🎟️ Ticket Form */
+/* -------------------------------------- */
+.ticket-form {
+  background: var(--color-light);
+  padding: 50px;
+  max-width: 650px; /* Slightly wider form */
+  margin: var(--spacing-xl) auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-form h2 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-dark);
+  border-bottom: 2px dashed var(--color-border);
+  padding-bottom: var(--spacing-sm);
+}
+
+.ticket-form form {
+  display: grid; /* Using Grid for more complex form layout potential */
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.ticket-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--color-text-main);
+}
+
+.ticket-form input,
+.ticket-form select {
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1em;
+  width: 100%;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.ticket-form input:focus,
+.ticket-form select:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+}
+
+.ticket-form .btn {
+  margin-top: var(--spacing-md);
+  width: 50%; /* Center and set defined width */
+  align-self: center;
+}
+
+/* -------------------------------------- */
+/* ⬇️ Footer */
+/* -------------------------------------- */
+footer {
+  background: var(--color-dark);
+  color: var(--color-light);
+  text-align: center;
+  padding: var(--spacing-md);
+  font-size: 0.9em;
+}
+
+/* -------------------------------------- */
+/* 📱 Media Query for Responsiveness */
+/* -------------------------------------- */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header {
+    flex-direction: column;
+    padding: var(--spacing-md);
+  }
+  header nav ul {
+    margin-top: var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  /* Hero adjustments */
+  .hero {
+    padding: 80px var(--spacing-md);
+  }
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  /* Form adjustments */
+  .ticket-form {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) var(--spacing-md);
+  }
+  .ticket-form .btn {
+    width: 80%;
+  }
+}
