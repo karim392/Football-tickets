@@ -1,0 +1,14 @@
+name: Football tickiting CI
+
+on:
+ push:
+  branches:
+   - main
+
+ pull:
+  branches:
+   - main
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
